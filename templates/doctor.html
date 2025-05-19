@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict - Smart Eye Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mainsignup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body style="background-color: #f8f9fa;">    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <header>
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                <div class="left-content d-flex align-items-center">
+                                    <div class="logo mr-30">
+                                        <a href="#" style="display: block; text-align: center; text-decoration: none;">
+                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" style="width: 300px; height: auto; border-radius: 50%;">
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li>
+                                                    <a href="http://127.0.0.1:5000/">Home</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#services">Services</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#about">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#contact">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <ul>
+                                        <li class="button-header" style="margin-right: 15px">
+                                            <a href="/login" class="header-btn2 border-btn2">
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li class="button-header">
+                                            <a href="/signup" class="header-btn2 border-btn2">
+                                                Sign Up
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h2 class="text-center">Doctor Signup form</h2>
+    <div class="" >
+        <form class="login mt-4 row g-3 needs-validation d-flex" action="/signup/doctor" method="POST" novalidate style="height: 450px;width: 600px;">
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label">Username</label>
+              <input type="text" name="username" class="form-control" id="validationCustom02"  required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustomUsername" class="form-label">Email</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please choose a Email.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label">Password</label>
+              <input type="text" name="password" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please choose a strong password.
+              </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Confirm Password</label>
+                <input type="text" name="confirmpassword" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                  Please match password.
+                </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom05" class="form-label">Designation</label>
+              <input type="text" name="designation" class="form-control" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide a valid designation.
+              </div>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">Hospital</label>
+                <input type="text" name="hospital" class="form-control" id="validationCustom05" required>
+                <div class="invalid-feedback">
+                  Please provide a valid hospital name.
+                </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form>
+    </div>
+    <script>
+        setTimeout(function() {
+          let alerts = document.querySelectorAll(".alert");
+          alerts.forEach(alert => {
+            alert.style.display = "none";
+          });
+        }, 3000); // 3 seconds
+    </script>   
+<script>
+    (() => {
+        'use strict'
+    
+        const forms = document.querySelectorAll('.needs-validation')
+    
+        Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
+        
+</body>
+</html>

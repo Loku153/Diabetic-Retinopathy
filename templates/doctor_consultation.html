@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Doctor Consultation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                <div class="left-content d-flex align-items-center">
+                                    <div class="logo mr-30">
+                                        <a href="/patient_dashboard" style="display: block; text-align: center; text-decoration: none;">
+                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" style="width: 300px; height: auto; border-radius: 50%;">
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="main-menu d-none d-lg-block">
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <ul>
+                                        <li class="button-header" style="margin-right: 15px">
+                                            <a href="#" class="header-btn2 border-btn2">
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                        <li class="button-header">
+                                            <a href="/logout" class="header-btn2 border-btn2">
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="doctor-list-area section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Consult a Doctor</h2>
+            <div class="row">
+                {% for doctor in doctors %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="doctor-card">
+                            <h4>{{ doctor[0] }}</h4>
+                            <p>Hospital: {{ doctor[1] }}</p>
+                            <p>Designation: {{ doctor[2] }}</p>
+                            <a href="{{ url_for('consult_form', doctor_username=doctor[0]) }}" class="btn btn-primary">Consult</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

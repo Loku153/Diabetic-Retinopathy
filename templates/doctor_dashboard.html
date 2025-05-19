@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Doctor Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                <div class="left-content d-flex align-items-center">
+                                    <div class="logo mr-30">
+                                        <a href="#" style="display: block; text-align: center; text-decoration: none;">
+                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" style="width: 300px; height: auto; border-radius: 50%;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <ul>
+                                        <li class="button-header" style="margin-right: 15px">
+                                            <a href="#" class="header-btn2 border-btn2">
+                                                {{ session.username }}
+                                            </a>
+                                        </li>
+                                        <li class="button-header">
+                                            <a href="/logout" class="header-btn2 border-btn2">
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard-area section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Consultation Requests</h2>
+            {% if forms %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Submission Date</th>
+                            <th>Report</th>
+                            <th>Prescription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for form in forms %}
+                            <tr>
+                                <td>{{ form[1] }}</td>
+                                <td>{{ form[3] }}</td>
+                                <td>{{ form[4] }}</td>
+                                <td>{{ form[5] }}</td>
+                                <td>
+                                    {% if form[6] %}
+                                        <a href="{{ url_for('static', filename=form[6].replace('\\', '/').replace('static/', '')) }}" target="_blank" style="color:green">View Report</a>
+                                    {% else %}
+                                        No report attached
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if form[4] == 'Done' %}
+                                        <div style="white-space: pre-wrap;">{{ form[7] }}</div>
+                                    {% else %}
+                                        <form method="POST" action="/submit_prescription">
+                                            <input type="hidden" name="form_id" value="{{ form[0] }}">
+                                            <textarea name="prescription" class="form-control" rows="2" placeholder="Enter prescription..." required></textarea>
+                                            <button type="submit" class="btn btn-sm btn-success mt-2">Submit</button>
+                                        </form>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center">No consultation requests.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

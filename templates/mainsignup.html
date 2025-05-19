@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict - Smart Eye Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mainsignup.css') }}">
+</head>
+<body style="background-color: #f8f9fa;">    
+    <header>
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                <div class="left-content d-flex align-items-center">
+                                    <div class="logo mr-30">
+                                        <a href="#" style="display: block; text-align: center; text-decoration: none;">
+                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" style="width: 300px; height: auto; border-radius: 50%;">
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li>
+                                                    <a href="http://127.0.0.1:5000/">Home</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#services">Services</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#about">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#contact">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <ul>
+                                        <li class="button-header" style="margin-right: 15px">
+                                            <a href="/login" class="header-btn2 border-btn2">
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li class="button-header">
+                                            <a href="/signup" class="header-btn2 border-btn2">
+                                                Sign Up
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="patdoc container" >
+        <div class="patient">
+            <a href="/signup/patient">
+            <img src="../static/img/icon/patient.jpg" alt="Patient Icon" width="200px">
+            <p>Sign Up as Patient</p>
+            </a>
+        </div>
+        <div class="doctor">
+            <a href="/signup/doctor">
+            <img src="../static/img/icon/doctor.png" alt="Doctor Icon" width="200px" height="180px">
+            <p>Sign Up as Doctor</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

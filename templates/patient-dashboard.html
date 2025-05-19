@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Visara-Your Health Buddy</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon/favicon.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="header-area">
+                <div class="main-header header-sticky">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                    <div class="left-content d-flex align-items-center">
+                                        <div class="logo mr-30">
+                                            <a href="#" style="display: block; text-align: center; text-decoration: none;">
+                                                <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" style="width: 300px; height: auto; border-radius: 50%;">
+                                            </a>
+                                            
+                                        </div>
+                                        <div class="main-menu d-none d-lg-block">
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <ul>
+                                            <li class="button-header" style="margin-right: 15px">
+                                                <a href="/patient_messages" class="header-btn2 border-btn2">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                            <li class="button-header">
+                                                <a href="/logout" class="header-btn2 border-btn2">
+                                                     Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section class="categories-area section-padding" id="services" style="padding-top:0; padding-bottom:0;">
+            <div class="slider-area  ">
+                <div class="single-sliders slider-height   d-flex align-items-center">
+                    <div class="container position-relative" style="top:0px">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-6 col-lg-6 col-md-10">
+                                    <div class="section-tittle text-center mb-35">
+                                        <span>Our Services</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div  class="single-cat text-center mb-50">
+                                        <div class="cat-icon">
+                                            <img style="height:100px" src="{{ url_for('static', filename='img/icon/eye.png') }}" alt="">
+                                        </div>
+                                        <div class="cat-cap">
+                                            <h5>
+                                                <a href="/predict">Diabetic Retinography</a>
+                                                <!-- <a href="#">Diabetic Retinography</a> -->
+                                            </h5>
+                                            <p>Prediction and Intuitive Visualisations for Diabetic Retinography.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-cat text-center mb-50">
+                                        <div class="cat-icon">
+                                            <img style="height:100px" src="{{ url_for('static', filename='img/icon/pharmacy.png') }}" alt="">
+                                        </div>
+                                        <div class="cat-cap">
+                                            <h5>
+                                                <a href="/chatbot">Personalised EyeCare Bot</a>
+                                            </h5>
+                                            <p>Your personalised EyeCare bot for eye releated Care and issues.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-cat text-center mb-50">
+                                        <div class="cat-icon">
+                                            <img style="height:100px" src="{{ url_for('static', filename='img/icon/caduceus.png') }}" alt="">
+                                        </div>
+                                        <div class="cat-cap">
+                                            <h5>
+                                                <a href="/doctor_consultation">Doctor Consultation</a>
+                                            </h5>
+                                            <p>A platform to take appointment and interact with the doctors.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-cat text-center mb-50">
+                                        <div class="cat-icon">
+                                            <img style="height:100px" src="{{ url_for('static', filename='img/icon/medical-records.png') }}" alt="">
+                                        </div>
+                                        <div class="cat-cap">
+                                            <h5>
+                                                <a href="/reports">Report Summariser</a>
+                                            </h5>
+                                            <p>Medical Reports can perplex common people, this feature simplifies the problem.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>       
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>
